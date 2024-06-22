@@ -38,7 +38,52 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
 }
 response = requests.get(url, headers=HEADERS)
+
+
+#" Leveraging the use of LLM in Web Scraping
+ ScrapeGraphAI leverages Ollama and Rag for web scraping. These tools, combined with Large Language Models (LLMs), offer flexible and efficient scraping solutions for developers.
+
+What Is ScrapeGraphAI?
+ScrapeGraphAI is an open-source Python library designed for web scraping.
+It uses LLMs (such as GPT-3) and direct graph logic to create scraping pipelines.
+The goal is to simplify web scraping while adapting to changes in website structures.
+Leveraging LLMs with Ollama:
+Ollama simplifies the process of downloading, setting up, and running LLMs.
+To use LLMs in ScrapeGraphAI, follow these steps:
+Pull LLMs from Ollama:
+Python
+
+# First, pull LLMs from Ollama
+ollama pull llama3
+ollama pull nomic-embed-text
 AI-generated code. Review and use carefully. More info on FAQ.
-Customize for Your Use Case:
-Adapt the code to your specific requirements (e.g., extract reviews, prices, images, etc.).
-Explore the Amazon product page’s structure to identify relevant elements.
+Use them in the graph configuration:
+Python
+
+graph_config = {
+    "llm": {
+        "model": "llama3",
+        "temperature": 0.0,
+        "format": "json",
+    },
+    "embeddings": {
+        "model": "nomic-embed-text",
+    },
+}
+
+Scraping with ScrapeGraphAI:
+ScrapeGraphAI represents scraping pipelines using a direct graph implementation.
+Each node in the graph has a specific function:
+Retrieve HTML from a website.
+Extract relevant information based on your query.
+Generate a coherent answer.
+The SmartScraperGraph class is one such default scraping pipeline.
+Local Execution:
+ScrapeGraphAI can run locally, making it convenient for developers.
+Minimum RAM requirements are around 15GB.
+You can apply this approach not only to websites but also to local documents (XML, HTML, JSON, etc.).
+Benefits of ScrapeGraphAI:
+Flexibility: Adapts to website changes, reducing the need for constant developer intervention.
+Low Maintenance: Remains functional even when website layouts change.
+Power of LLMs: Utilizes LLMs for intelligent data extraction.
+
